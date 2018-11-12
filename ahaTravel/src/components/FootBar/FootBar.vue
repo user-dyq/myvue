@@ -1,9 +1,7 @@
 <template>
 
   <div class="footer_guide">
-    <div>
-      顶顶顶顶
-    </div>
+    
     <span class="guide_item" >
       <router-link exact :to="{'path':'/homePage'}">
         <span class="item_icon">
