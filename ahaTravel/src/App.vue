@@ -2,8 +2,10 @@
   <div>
 
       <router-view/>
-      <FootBar/>
-
+        
+         <FootBar/>
+        
+      
 
   </div>
 </template>

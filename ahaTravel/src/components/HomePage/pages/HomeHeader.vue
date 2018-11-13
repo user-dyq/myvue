@@ -25,7 +25,7 @@
       <!--当季推荐-->
       <div class="home-recommend">
         <ul class="home-recommend-list">
-          <li v-for="item in homedata.activityLongLine" :key="item.sortid" v-on:click="lineDetail(item.id)">
+          <li v-for="item in homedata.lineDomestic" :key="item.sortid" v-on:click="lineDetail(item.aboutid)">
             <div class="home-recommendtype">当季推荐</div>
             <img :src="item.pic" alt="">
             <div class="home-recommendmsg">{{item.caption}}</div>
@@ -59,8 +59,19 @@
 
       },
       methods:{
-        lineDetail(){
-          this.$router.push('/linedetail')
+        lineDetail(lineid){
+           
+          this.$router.push(
+            {
+              path: '/aaPartner',
+              params: {   
+                lineid: lineid, 
+              },  
+              query: {  
+                lineid: lineid, 
+              }
+            }
+          ) 
         }
       }
     }
