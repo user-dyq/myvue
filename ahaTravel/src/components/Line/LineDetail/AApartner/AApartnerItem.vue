@@ -1,6 +1,5 @@
 <template>
- <div>
-
+ <div class="aapaetner-item">
        <!-- 用户信息 -->
        <div class="aapaetner-userinfo">
          <img class="aapaetner-userpic" :src="parnerInfo.userInfo.pic" alt="">
@@ -52,7 +51,6 @@
 
    },
    mounted(){//方法
-       
       console.log('parnerInfoparnerInfoparnerInfo',this.parnerInfo)
    }
  }
@@ -60,7 +58,10 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
 @import "~css/var.styl"
- .aapaetner-userinfo{
+  .aapaetner-item{
+    overflow hidden
+  }
+  .aapaetner-userinfo{
     display: flex;
     justify-content:space-between;//横向居中
     align-items:Center;//垂直居中

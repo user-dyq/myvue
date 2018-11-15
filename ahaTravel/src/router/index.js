@@ -9,7 +9,8 @@ import Login from '@/components/Mine/login/Login'
 import LineDetail from '@/components/Line/LineDetail/LineDetail'
 import AAPartner from '@/components/Line/LineDetail/AApartner/AApartner'
 import AAPartnerDetail from '@/components/Line/LineDetail/AApartner/AApartnerDetail'
-
+import PubAApartner from '@/components/Line/LineDetail/AApartner/PubAApartner'
+import MyLine from '@/components/Mine/MyLine/MyLine'
 Vue.use(Router)
 
 export default new Router({
@@ -62,6 +63,16 @@ export default new Router({
       path: '/aaPartnerDetail',
       name: 'AAPartnerDetail',
       component: AAPartnerDetail
+    },
+    {
+      path: '/pubAApartner',
+      name: 'PubAApartner',
+      component: PubAApartner
+    },
+    {
+      path: '/myLine',
+      name: 'MyLine',
+      component: MyLine
     }
   ]
 })

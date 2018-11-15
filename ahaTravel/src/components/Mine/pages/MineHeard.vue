@@ -8,7 +8,7 @@
 
       </div>
       <ul class="mile-title-class">
-        <li>
+        <li @click="goMyline">
           <img src="@/assets/img/mine/btn_activity@3x.png" alt="">
           路书
         </li>
@@ -33,6 +33,14 @@
       methods:{
         loginaction(){
           this.$store.commit("setTransition", "turn-on");
+        },
+        goMyline(){
+          
+          this.$router.push(
+            {
+              path: '/myLine',
+            }
+          )
         }
       },
 
