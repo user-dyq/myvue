@@ -1,13 +1,13 @@
 <template>
   <div class="photo">
-      <photo-view></photo-view>
+      <!-- <photo-view></photo-view> -->
     	 
   </div>
 </template>
 
 <script>
   // import PhotoView from "./photoview.vue";
-  import PhotoView from './photoview'
+  // import PhotoView from './photoview'
   export default {
     
     name: 'photo',
@@ -17,7 +17,7 @@
       }
     },
     components: {
-    	PhotoView
+    	// PhotoView
     }
   }
 </script>

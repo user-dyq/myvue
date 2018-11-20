@@ -1,72 +1,46 @@
+
 <template>
- <div>
-     <div class="myLine-title">
-         <img src="" alt="">
-         路书
-         <img src="" alt="">
-     </div>
-     <ul class="myLine-router">
-         <li>我的</li>
-         <li>收藏</li>
-         <li>草稿</li>
-     </ul>
- </div>
+  <div class="page-navbar">
+    <mt-header title="我的路书">
+        <router-link to="/" slot="left">
+            <mt-button icon="back"></mt-button>
+        </router-link>
+        <!-- <mt-button icon="more" slot="right"></mt-button> -->
+    </mt-header>
+    <!-- navbar -->
+    <mt-navbar class="page-part" v-model="selected">
+      <mt-tab-item id="1">选项一</mt-tab-item>
+      <mt-tab-item id="2">选项二</mt-tab-item>
+      <mt-tab-item id="3">选项三</mt-tab-item>
+    </mt-navbar>
+ 
+    <div>
+      <mt-cell class="page-part" title="当前选中">{{ selected }}</mt-cell>
+    </div>
+ 
+	<!-- tabcontainer -->
+    <mt-tab-container v-model="selected">
+      <mt-tab-container-item id="1">
+        <mt-cell v-for="n in 10" :title="'内容 ' + n" :key="n"/>
+      </mt-tab-container-item>
+      <mt-tab-container-item id="2">
+        <mt-cell v-for="n in 4" :title="'测试 ' + n" :key="n"/>
+      </mt-tab-container-item>
+      <mt-tab-container-item id="3">
+        <mt-cell v-for="n in 6" :title="'选项 ' + n" :key="n"/>
+      </mt-tab-container-item>
+    </mt-tab-container>
+  </div>
 </template>
-
+ 
 <script>
- export default {
-   data () {//参数
-     return {
-        token:'546f537f44e6030a523535bf922ca65f'
-     }
-   },
-   components: {//挂载子组件
-
-   },
-   mounted(){//方法
-    this.$http.post('phone.php?m=myline&a=getlist',{
-          token:this.token,
-        },{
-          emulateJSON:true
-        }).then(function(data){
-          this.commentList = data.data.data.list
-          console.log('commentListcommentList' , this.commentList);
-        }).catch(function(){
-          alert('error')
-        });
-   }
- }
+export default {
+  name: 'page-navbar',
+ 
+  data() {
+    return {
+      selected: '1'
+    };
+  }
+};
 </script>
-
-<style lang="stylus" rel="stylesheet/stylus">
-
-@import "~css/var.styl"
-    .myLine-title{
-        width 100%
-        height 4.4rem
-        margin-top 2.2rem
-        display flex
-        align-items center
-        justify-content space-between
-        line-height 4.4rem
-        // border-bottom: .1rem solid #e0e0e0
-        box-shadow: 0px .1rem #e0e0e0
-    }
-    .myLine-title img {
-        margin 1rem
-        width 2rem
-        height 2rem
-        background-color red
-    }
-    .myLine-router{
-        width 100%
-        height 4rem
-        border-bottom: .1rem solid #e0e0e0;
-    }
-    .myLine-router >li {
-        float left
-        width 33.3333%
-        text-align center
-        line-height 4rem
-    }
-</style>

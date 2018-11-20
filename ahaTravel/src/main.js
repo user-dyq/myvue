@@ -9,6 +9,9 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(MintUI)
 // import vuex from 'vuex'
 // Vue.use(vuex);
 
