@@ -1,99 +1,57 @@
 <template>
-
-  <div class="footer_guide">
-    
-    <span class="guide_item" >
-      <router-link exact :to="{'path':'/homePage'}">
-        <span class="item_icon">
-          <img src="@/assets/img/bar/tab_activity_pre@3x.png" alt="">
-        </span>
-        <span>首页</span>
-      </router-link>
-    </span>
-
-      <span class="guide_item" >
-      <router-link exact :to="{'path':'/line'}">
-        <span class="item_icon">
-          <img src="@/assets/img/bar/tab_activity_pre@3x.png" alt="">
-        </span>
-        <span>路书</span>
-      </router-link>
-    </span>
-      <span class="guide_item" >
-      <router-link exact :to="{'path':'/action'}">
-        <span class="item_icon">
-          <img src="@/assets/img/bar/tab_activity_pre@3x.png" alt="">
-        </span>
-        <span>活动</span>
-      </router-link>
-    </span>
-      <span class="guide_item" >
-      <router-link exact :to="{'path':'/mine'}">
-        <span class="item_icon">
-          <img src="@/assets/img/bar/tab_activity_pre@3x.png" alt="">
-        </span>
-        <span>我的</span>
-      </router-link>
-    </span>
-  </div>
+<keep-alive>
+ 
+  <mt-tabbar v-model="selected" fixed  v-show="$route.meta.navShow">
+    <mt-tab-item id="homePage">
+      <img slot="icon" src="../../assets/img/bar/tab_rec_pre@3x.png" v-if="this.selected == 'homePage'" >
+      <img slot="icon" src="../../assets/img/bar/tab_rec_nor@3x.png" v-else>
+      <span v-if="this.selected == 'homePage'" class="selectedItem">主页</span>
+      <span v-else>主页</span>
+    </mt-tab-item>
+    <mt-tab-item id="line">
+      <img slot="icon" src="../../assets/img/bar/tab_route_pre@3x.png" v-if="this.selected == 'line'" >
+      <img slot="icon" src="../../assets/img/bar/tab_route_nor@3x.png" v-else>
+      <span v-if="this.selected == 'line'" class="selectedItem">路书</span>
+      <span v-else>路书</span>
+    </mt-tab-item>
+    <mt-tab-item id="action">
+      <img slot="icon" src="../../assets/img/bar/tab_activity_pre@3x.png" v-if="this.selected == 'action'" >
+      <img slot="icon" src="../../assets/img/bar/tab_activity_nor@3x.png" v-else>
+      <span v-if="this.selected == 'action'" class="selectedItem">活动</span>
+      <span v-else>活动</span>
+    </mt-tab-item>
+    <mt-tab-item id="mine">
+      <img slot="icon" src="../../assets/img/bar/tab_i_pre@3x.png" v-if="this.selected == 'mine'">
+      <img slot="icon" src="../../assets/img/bar/tab_i_nor@3x.png" v-else>
+      <span v-if="this.selected == 'mine'" class="selectedItem">我的</span>
+      <span v-else>我的</span>
+    </mt-tab-item>
+  </mt-tabbar>
+</keep-alive>
  
 </template>
-
 <script>
-  export default {
-    methods:{
-      goTo(path){
-        this.$router.replace(path)//点击tabbar实现路由跳转
-      }
+export default {
+  data(){
+    return{
+    //选中的tabbar值message为外面页面传入的值selected
+       selected:'homePage',
     }
-  }
+  },
+   
+  watch: {
+    selected: function (val, oldVal) {
+      // 这里就可以通过 val 的值变更来确定去向
+      this.selected = val;
+      
+      this.$router.push('/'+val);
+    }
+  },
+}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "~css/var.styl"
-  /*@import "~css/reset.css"*/
-  .footer_guide {
-    top-border-1px(#e4e4e4)
-    position fixed
-    z-index 100
-    left 0
-    right 0
-    bottom 0
-    background-color #fff
-    width 100%
-    height 50px
-    display flex
-  }
-  .guide_item{
-    display flex
-    flex 1
-    text-align center
-    flex-direction column
-    align-items center
-    margin 5px
-    color #999999
-  }
-  .guide_item span{
-    font-size 1.2rem
-    margin-bottom 2px
-
-    display block
-  }
-  .guide_item img{
-    width 1.3rem
-    height 1.3rem
-  }
-  .router-link-active{
-    color: $bgColor
-  }
-  .guide_item:child(0) img{
-    src: "@/assets/img/bar/tab_activity_nor@3x.png"
-  }
-
-  .router-link-active:child(0) img{
-    src: "@/assets/img/bar/tab_activity_pre@3x.png"
-  }
-
-
-
+.selectedItem{
+  color #d20202
+}
 </style>

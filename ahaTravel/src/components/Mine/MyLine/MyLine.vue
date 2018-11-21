@@ -1,12 +1,7 @@
 
 <template>
   <div class="page-navbar">
-    <mt-header title="我的路书">
-        <router-link to="/" slot="left">
-            <mt-button icon="back"></mt-button>
-        </router-link>
-        <!-- <mt-button icon="more" slot="right"></mt-button> -->
-    </mt-header>
+    
     <!-- navbar -->
     <mt-navbar class="page-part" v-model="selected">
       <mt-tab-item id="1">选项一</mt-tab-item>
@@ -39,8 +34,12 @@ export default {
  
   data() {
     return {
-      selected: '1'
+      selected: '1',
+      // navtitle: "我的路书"
     };
-  }
+  },
+   mounted(){
+      this.navtitle =  "我的路书"
+   }
 };
 </script>

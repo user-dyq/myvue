@@ -11,21 +11,25 @@ import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
-Vue.use(MintUI)
-// import vuex from 'vuex'
-// Vue.use(vuex);
+import store from 'store/index.js'
 
+Vue.use(MintUI)
 Vue.use(VueResource)
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
 Vue.use(Viewer, {
   defaultOptions: {
-      zIndex: 9999
+    zIndex: 9999
   }
 })
-new Vue({
+
+let vRouter = new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: '<App/>'
+})
+Vue.use({
+  vRouter
 })

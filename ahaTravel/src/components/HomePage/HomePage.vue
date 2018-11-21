@@ -6,6 +6,7 @@
 
 <script>
   import HomeHeader from './pages/HomeHeader.vue'
+   
     export default {
       components:{
         HomeHeader

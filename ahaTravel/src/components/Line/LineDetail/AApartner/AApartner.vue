@@ -1,12 +1,13 @@
 <template>
  
  <div>
-  <div class="aapaetner-title">
-   <img src="" alt="">
-   <span>AA约伴</span>
-   <img src="" alt="" @click='goPubPartner'> 
-  </div>
-   <ul>
+  <mt-header class="nav-title" fixed title="AA约伴">
+    <router-link to="/" slot="left">
+      <mt-button icon="back"></mt-button>
+    </router-link>
+    <mt-button slot="right"></mt-button>
+  </mt-header>
+   <ul class="partner-list">
      <li class="aapaetner-item" v-for="item in this.partnerList" :key='item.id' @click='goAApartnerDetail(item.id)'>
        <PartnerItem :parnerInfo="item"></PartnerItem>
      </li>
@@ -77,19 +78,13 @@ import PartnerItem from './AApartnerItem'
 
 <style lang="stylus" rel="stylesheet/stylus">
 @import "~css/var.styl"
-  .aapaetner-title{
-    display flex
-    justify-content space-between
-    align-items center
-    height 4.4rem
-    padding 0 1rem
+  .nav-title{
+     background-color #fff
+     color black
   }
-  .aapaetner-title >img {
-    width 2rem
-    height 2rem
-    background-color green
-  }
-  .aapaetner-item{
+   
+  .partner-list{
+    margin-top 3rem
     border-bottom: 1rem solid #e0e0e0;
   }
 </style>

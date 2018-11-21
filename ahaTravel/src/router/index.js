@@ -18,12 +18,14 @@ export default new Router({
     {
       path: '/homePage',
       name: 'HomePage',
-      component: HomePage
+      component: HomePage,
+      meta: {navShow: true}
     },
     {
       path: '/line',
       name: 'Line',
-      component: Line
+      component: Line,
+      meta: {navShow: true}
     },
     {
       path: '/add',
@@ -33,12 +35,14 @@ export default new Router({
     {
       path: '/action',
       name: 'Action',
-      component: Action
+      component: Action,
+      meta: {navShow: true}
     },
     {
       path: '/mine',
       name: 'Mine',
-      component: Mine
+      component: Mine,
+      meta: {navShow: true}
     },
     {
       path: '/',
