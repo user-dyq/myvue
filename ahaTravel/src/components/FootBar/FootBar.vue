@@ -1,6 +1,6 @@
 <template>
 <keep-alive>
- 
+  
   <mt-tabbar v-model="selected" fixed  v-show="$route.meta.navShow">
     <mt-tab-item id="homePage">
       <img slot="icon" src="../../assets/img/bar/tab_rec_pre@3x.png" v-if="this.selected == 'homePage'" >
