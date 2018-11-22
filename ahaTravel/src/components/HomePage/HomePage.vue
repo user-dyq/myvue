@@ -1,14 +1,13 @@
 <template>
     <div class="home">
       <HomeHeader :swiperList="swiperList" :homedata="homedata"></HomeHeader>
-      <div></div>
     </div>
-    
+
 </template>
 
 <script>
   import HomeHeader from './pages/HomeHeader.vue'
-   
+    
     export default {
       components:{
         HomeHeader
@@ -20,7 +19,12 @@
         }
       },
       mounted(){
-
+        //  this.$store.token = 's';
+        // settoken
+        
+        // window.localStorage.setItem('token', JSON.stringify('items'));
+        //  alert(this.$store.token)
+        
         this.$http.get('phone.php?m=default&a=recommend',{
   //        username:this.ruleForm.username,
   //        password:this.ruleForm.password
@@ -38,7 +42,7 @@
         },{
           emulateJSON:true
         }).then(function(data){
-          
+
           this.swiperList = data.data.data
 
         }).catch(function(){

@@ -3,7 +3,7 @@
  <div>
   <mt-header class="nav-title" fixed title="AA约伴">
     <router-link to="/" slot="left">
-      <mt-button icon="back"></mt-button>
+      <mt-button  icon="back"></mt-button>
     </router-link>
     <mt-button slot="right"></mt-button>
   </mt-header>

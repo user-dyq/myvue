@@ -39,7 +39,7 @@ export default {
     };
   },
    mounted(){
-      this.navtitle =  "我的路书"
+       
    }
 };
 </script>

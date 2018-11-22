@@ -11,7 +11,7 @@ import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
-import store from '../src/assets/store/index'
+import store from './store'
 
 Vue.use(MintUI)
 Vue.use(VueResource)
